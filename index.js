@@ -4,7 +4,7 @@ const github = require('@actions/github');
 try {
   fetch('https://4g5tw1k0.api.sanity.io/v2021-03-25/data/query/production?query=*[0]')
   .then(response => response.json())
-  .then(data => console.log(data));
+  .then(data => console.log(JSON.stringify(data, undefined, 2));
 
   // `who-to-greet` input defined in action metadata file
   const nameToGreet = core.getInput('who-to-greet');
