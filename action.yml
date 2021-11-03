@@ -8,6 +8,7 @@ inputs:
   sanity-data: # a second input
     description: 'Data pulled from Sanity API'
     required: true
+    default: {data: 'none'}
 outputs:
   time: # id of output
     description: 'The time we greeted you'
