@@ -12,6 +12,11 @@ jobs:
           CONFIGURATION: '{ "method": "GET", "headers": {"Authorization": "Bearer ${{ secrets.SANITY_ACTIONS_TOKEN }}"} }'
       - name: Print out data
         run: echo "Data retrieved is $FETCH_API_DATA"
+      - name: Upload output file
+        uses: actions/upload-artifact@v2
+        with:
+          name: output-log-file
+          path: fetch-api-data-action/data.json
   hello_world_job:
     runs-on: ubuntu-latest
     name: A job to say hello
