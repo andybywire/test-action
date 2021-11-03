@@ -3,9 +3,9 @@ description: 'Greet someone and record the time'
 inputs:
   who-to-greet:  # id of input
     description: 'Who to greet'
-    required: true
+    required: false
     default: 'World'
-  sanity-data: 
+  sanity-data: # a second input
     description: 'Data pulled from Sanity API'
     required: true
 outputs:

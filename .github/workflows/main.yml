@@ -21,7 +21,6 @@ jobs:
         id: hello
         uses: andybywire/test-action@v0.1
         with:
-          who-to-greet: 'Marvin the fierce'
           sanity-data: ${{env.FETCH_API_DATA}}
       # Use the output from the `hello` step
       - name: Get the output time
