@@ -24,7 +24,7 @@ jobs:
         uses: ./
         with:
           who-to-greet: 'Marvin the fierce'
-          sanity-data: ${{steps.data.outputs.FETCH_API_DATA}}
+          sanity-data: ${{env.FETCH_API_DATA}}
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
