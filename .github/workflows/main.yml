@@ -16,11 +16,6 @@ jobs:
         with:
           name: output-log-file
           path: fetch-api-data-action/data.json
-      - name: Upload text file
-        uses: actions/upload-artifact@v2
-        with:
-          name: output-text-file
-          path: createdFile.txt
       - uses: actions/checkout@v2
         name: Checkout Branch
       - name: Hello world action step
@@ -34,3 +29,8 @@ jobs:
       # Use the output from the `hello` step©π©π˝∏
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Upload text file
+        uses: actions/upload-artifact@v2
+        with:
+          name: output-text-file
+          path: createdFile.txt
