@@ -11,8 +11,8 @@ try {
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   console.log(`The event payload: ${payload}`);
-  const sanityData = core.getInput('sanity-data');
-  console.log(`Here is that data again ${sanityData}`);
+  // const sanityData = core.getInput('sanity-data');
+  // console.log(`Here is that data again ${sanityData}`);
 } catch (error) {
   core.setFailed(error.message);
 }
