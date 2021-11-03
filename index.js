@@ -24,6 +24,8 @@ try {
       console.log("Data has been written to file successfully.");
   });
 
+  
+
 } catch (error) {
   core.setFailed(error.message);
 }
