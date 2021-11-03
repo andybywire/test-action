@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: andybywire/test-action@v0.3
+        uses: andybywire/test-action
         with:
           who-to-greet: 'Marvin the fierce'
           sanity-data: ${{env.FETCH_API_DATA}}
