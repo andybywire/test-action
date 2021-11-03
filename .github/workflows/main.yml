@@ -6,7 +6,6 @@ jobs:
     steps:
       - name: Fetch API Data 📦
         uses: JamesIves/fetch-api-data-action@releases/v1
-        id: data
         with:
           ENDPOINT: https://4g5tw1k0.api.sanity.io/v2021-03-25/data/query/production?query=*[0]
           CONFIGURATION: '{ "method": "GET", "headers": {"Authorization": "Bearer ${{ secrets.SANITY_ACTIONS_TOKEN }}"} }'
@@ -17,6 +16,11 @@ jobs:
         with:
           name: output-log-file
           path: fetch-api-data-action/data.json
+      - name: Upload text file
+        uses: actions/upload-artifact@v2
+        with:
+          name: output-text-file
+          path: createdFile.txt
       - uses: actions/checkout@v2
         name: Checkout Branch
       - name: Hello world action step
