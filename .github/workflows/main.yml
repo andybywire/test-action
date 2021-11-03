@@ -21,7 +21,7 @@ jobs:
         name: Checkout Branch
       - name: Hello world action step
         id: hello
-        uses: ./.github/actions
+        uses: ./.github/actions/test-action
         with:
           who-to-greet: 'Marvin the fierce'
           sanity-data: ${{env.FETCH_API_DATA}}
