@@ -14,6 +14,16 @@ try {
   const sanityData = core.getInput('sanity-data');
   const sanityDataOutput = JSON.stringify(sanityData, null, 2);
   console.log(`Here is that data again ${sanityDataOutput}`);
+
+  const fs = require('fs');
+  const data = "This is the new content of the file.";
+  fs.writeFile('file.txt', data, (err) => {
+      if(err) {
+          throw err;
+      }
+      console.log("Data has been written to file successfully.");
+  });
+
 } catch (error) {
   core.setFailed(error.message);
 }
