@@ -2,9 +2,6 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
-  fetch('https://4g5tw1k0.api.sanity.io/v2021-03-25/data/query/production?query=*[0]')
-  .then(response => response.json())
-  .then(data => console.log(JSON.stringify(data, undefined, 2));
 
   // `who-to-greet` input defined in action metadata file
   const nameToGreet = core.getInput('who-to-greet');
@@ -14,6 +11,8 @@ try {
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   console.log(`The event payload: ${payload}`);
+  const sanityData = core.getInput('sanity-data');
+  console.log(`Here is that data again ${sanityData}`);
 } catch (error) {
   core.setFailed(error.message);
 }

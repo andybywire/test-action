@@ -1,18 +1,6 @@
 on: [push]
 
 jobs:
-  hello_world_job:
-    runs-on: ubuntu-latest
-    name: A job to say hello
-    steps:
-      - name: Hello world action step
-        id: hello
-        uses: andybywire/test-action@v0.1
-        with:
-          who-to-greet: 'Marvin the fierce'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
   refresh-feed:
     runs-on: ubuntu-latest
     steps:
@@ -24,3 +12,16 @@ jobs:
           CONFIGURATION: '{ "method": "GET", "headers": {"Authorization": "Bearer ${{ secrets.SANITY_ACTIONS_TOKEN }}"} }'
       - name: Print out data
         run: echo "Data retrieved is ${{ steps.data.outputs.FETCH_API_DATA }}"
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - name: Hello world action step
+        id: hello
+        uses: andybywire/test-action@v0.1
+        with:
+          who-to-greet: 'Marvin the fierce'
+          sanity-data: env.FETCH_API_DATA
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
